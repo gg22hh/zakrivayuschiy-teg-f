@@ -1,1 +1,13 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+  --accent-color: #00cc14;
+  --heart-fill: #FF0000;
+  --heart-contour: #00cc14;
+  --background-color: #000;
+  --font-weight: 465;
+  --font-weight-bold: 785;
+  --button-text-color: #00cc14;
+  --background-gradient: repeating-linear-gradient(#000, transparent 2px),
+    repeating-linear-gradient(to left, #000, transparent 2px),
+    linear-gradient(#007f0c, #004306);
+}
