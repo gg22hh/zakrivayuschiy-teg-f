@@ -27,7 +27,7 @@
 }
 
 .header {
-  font-family: 'PressStart2P', sans-serif;
+  font-family: 'PressStart2P', fantasy;
   width: 100%;
   max-width: 700px;
   height: 368px;
@@ -46,6 +46,7 @@
 .header__title {
   font-size: clamp(49px, 7vw, 65px);
   margin-bottom: 20px;
+  text-decoration: none;
 }
 
 .header__description {
@@ -104,6 +105,10 @@
   animation: arrow 0.5s ease-in-out infinite alternate;
 }
 
+main {
+  padding-bottom: 105px;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -141,7 +146,7 @@
 }
 
 .card__label {
-  font-family: 'PressStart2P', sans-serif;
+  font-family: 'PressStart2P', fantasy;
   font-size: 14px;
   position: absolute;
   top: 25px;
@@ -164,7 +169,7 @@
   display: flex;
   align-items: center;
   justify-content: end;
-  gap: 6px;
+  gap: 4px;
 }
 
 .card__icon-button {
@@ -180,7 +185,7 @@
 }
 
 .button {
-  font-family: 'PressStart2P', sans-serif;
+  font-family: 'PressStart2P', fantasy;
   font-size: 14px;
   border: 2px solid currentColor;
   transition: box-shadow 0.3s;
@@ -214,8 +219,17 @@
   color: var(--button-text-color);
 }
 
+.card__like-button .button__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .card__like-button {
-  padding: 10px 35px;
+  width: 130px;
+  height: 38px;
+  position: relative;
 }
 
 .core {
@@ -296,16 +310,15 @@
   opacity: 0;
 }
 
-dialog {
-  font-family: 'PressStart2P', sans-serif;
-  position: fixed;
-  top: 40%;
+.popup[open] {
+  font-family: 'PressStart2P', fantasy;
   border: 2px solid var(--accent-color);
   width: 100%;
   max-width: 357px;
   color: var(--accent-color);
   background-color: var(--background-color);
   padding: 30px;
+  text-transform: uppercase;
 }
 
 .popup[open] .popup__info {
@@ -362,36 +375,10 @@ dialog svg {
   filter: sepia(1) contrast(4) brightness(200%);
 }
 
-@supports (-webkit-text-stroke: 1px #000) {
+@supports ((text-stroke: 1px var(--text-stroke-color)) or (-webkit-text-stroke: 1px var(--text-stroke-color))) {
   .card__label {
-    -webkit-text-stroke: 1px #000;
-  }
-}
-
-@keyframes sparks {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes heart {
-  0% {
-    scale: 1;
-  }
-  100% {
-    scale: 1.1;
-  }
-}
-
-@keyframes arrow {
-  0% {
-    translate: 0 0;
-  }
-  100% {
-    translate: 4px 0;
+    text-stroke: 1px var(--text-stroke-color);
+    -webkit-text-stroke: 1px var(--text-stroke-color);
   }
 }
 
@@ -401,6 +388,18 @@ dialog svg {
   }
   .card__image {
     height: 371px;
+  }
+  .save__button {
+    display: flex;
+    flex-direction: column;
+  }
+  .save__button svg {
+    width: 28px;
+    height: 28px;
+  }
+  .card__label {
+    top: 23px;
+    right: 12px;
   }
 
   dialog {
